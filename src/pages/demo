@@ -1,0 +1,22 @@
+const element = useRoutes([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/books",
+    children: [
+      { index: true, element: <Books /> },
+      { path: ":id", element: <BookDetails /> },
+      { path: "new", element: <NewBooks /> },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+]);
+
+console.log(element);
+
+return element;
